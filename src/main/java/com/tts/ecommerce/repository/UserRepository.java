@@ -9,4 +9,6 @@ import com.tts.ecommerce.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 	User findByUsername(String username);
+
+	void save(org.springframework.security.core.userdetails.User user);
 }

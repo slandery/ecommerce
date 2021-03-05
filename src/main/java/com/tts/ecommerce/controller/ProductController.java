@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.tts.ecommerce.model.Product;
+import com.tts.ecommerce.service.ProductService;
+
 @Controller
 public class ProductController {
 	@Autowired
@@ -16,6 +19,7 @@ public class ProductController {
 	@GetMapping("/product/{id}")
 	public String show()
 	{
+		long id;
 		Product product = productService.findById(id);
 		model.addAttribute(product);
 		return "product";

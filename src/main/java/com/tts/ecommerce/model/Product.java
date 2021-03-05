@@ -1,5 +1,7 @@
 package com.tts.ecommerce.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,11 +27,23 @@ public class Product {
 	  
 	//add this in
 	private int quantity;
-	private float price;
+	private double price;
 	private String description;
 	private String name;
 	private String brand;
 	private String category;
 	private String image;
+
+	public String getId;
+
+	public static List<String> findDistinctBrands() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static List<Product> findByBrandAndOrCategory(String brand2, String category2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

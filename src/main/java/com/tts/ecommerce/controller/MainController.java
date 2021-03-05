@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import com.tts.ecommerce.model.Product;
+import com.tts.ecommerce.service.ProductService;
 
 public class MainController {
 	@Autowired
@@ -32,21 +33,21 @@ public class MainController {
 		return productService.findDistinctCategories()
 ;	}
 	@ModelAttribute("brands")
-	public List<String> categories(){
-		return productService.findDistinctBrands();	
+	public List<String> categories1(){
+		return Product.findDistinctBrands();	
 	}
 	
 	@GetMapping("/filter")
 	public String filter(@RequestParam(required = false) String category, 
 						 @RequestParam(required = false) String brand,
 						 Model model) {
-		List<Product> filtered = productService.findByBrandAndOrCategory(brand, category);
+		List<Product> filtered = Product.findByBrandAndOrCategory(brand, category);
 		model.addAttribute("products", filtered); //Overrides the @ModelAttribute above
 		return "main";
 	}
 
 		
-	}
+	
 	@GetMapping("/about")
 	public String about() {
 		return "about";

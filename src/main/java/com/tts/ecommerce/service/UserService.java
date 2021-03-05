@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,14 +15,14 @@ import com.tts.ecommerce.model.Product;
 import com.tts.ecommerce.repository.UserRepository;
 
 @Service
-public class UserService implements UserDetailService {
+public class UserService implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public User findByUsername(String username) {
+	public Object findByUsername(String username) {
 	return userRepository.findByUsername(username);	
 	}
 	
